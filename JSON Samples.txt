@@ -1,0 +1,17 @@
+Sample Output from Database in JSON format:
+
+> db.hospital.find( {"hospitalID":3001} )
+
+{ "_id" : ObjectId("54f536ce12fe040476f8eb29"), "hospitalID" : NumberLong(3001), "hospitalName" : "Children's Mercy South", "lat" : 38.9298785, "lon" : -94.6523746, "address" : "5808 W. 110th Overland Park, KS 66211", "levelOfCare" : "basicER", "patientAges" : [ "child", "teen" ], "traumaBeds" : 0, "traumaBedsFree" : 0, "traumaBedsOccupied" : 0, "traumaBedsCleanup" : 0, "erBeds" : 25, "erBedsFree" : 25, "erBedsOccupied" : 0, "erBedsCleanup" : 0 }
+
+> db.hospital.find( {"hospitalID":6003} )
+{ "_id" : ObjectId("54f536cf12fe040476f8eb30"), "hospitalID" : NumberLong(6003), "hospitalName" : "Liberty Hospital", "lat" : 39.2747471, "lon" : -94.4243895, "address" : "2525 Glenn Hendren Drive Liberty, MO 64068", "levelOfCare" : "level2", "patientAges" : [ "child", "teen", "adult" ], "traumaBeds" : 3, "traumaBedsFree" : 3, "traumaBedsOccupied" : 0, "traumaBedsCleanup" : 0, "erBeds" : 25, "erBedsFree" : 25, "erBedsOccupied" : 0, "erBedsCleanup" : 0 }
+
+> db.ambulance.find( {"ambulanceID":1000} )
+
+{ "_id" : ObjectId("54f536cf12fe040476f8eb37"), "ambulanceID" : NumberLong(1000), "lat" : 39.29647, "lon" : -94.487637, "lastUpdate" : ISODate("2015-03-03T04:21:35.261Z"), "targetHospital" : 6003, "eta" : "8:20", "patientAge" : "8:20", "patientCategory" : "basicER" }
+
+> db.ambulance.find( {"ambulanceID":2003} )
+
+{ "_id" : ObjectId("54f536cf12fe040476f8eb3c"), "ambulanceID" : NumberLong(2003), "lat" : 39.168923, "lon" : -94.572266 }
+
