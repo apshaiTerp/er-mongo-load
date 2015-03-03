@@ -58,8 +58,10 @@ public class DataLoader {
       
       //Collections are like tables
       //Let's start with loading our hospitals
+      int hospitalCount = 0;
       DBCollection hospitals = mongoDB.getCollection("hospital");
       for (Hospital hospital : HospitalLoader.buildHospitalList()) {
+        hospitalCount++;
         BasicDBObject writeObject = new BasicDBObject();
         
         //Convert our Hospital into a BSON object
@@ -87,10 +89,13 @@ public class DataLoader {
         //reload this data to 'reset' the contents of our system at any time.
         hospitals.update(updateCheckObject, writeObject, true, false);
       }
+      System.out.println ("Successfully Inserted/Updated " + hospitalCount + " hospitals!");
 
       //Let's start with loading our hospitals
+      int ambulanceCount = 0;
       DBCollection ambulances = mongoDB.getCollection("ambulance");
       for (Ambulance ambulance : AmbulanceLoader.buildAmbulanceList()) {
+        ambulanceCount++;
         BasicDBObject writeObject = new BasicDBObject();
         
         //Convert our Ambulance into a BSON object
@@ -113,6 +118,8 @@ public class DataLoader {
         //reload this data to 'reset' the contents of our system at any time.
         ambulances.update(updateCheckObject, writeObject, true, false);
       }
+      
+      System.out.println ("Successfully Inserted/Updated " + ambulanceCount + " ambulances!");
 
       client.close();
     } catch (UnknownHostException e) {
