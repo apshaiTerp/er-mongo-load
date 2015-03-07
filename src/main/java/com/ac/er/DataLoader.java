@@ -1,6 +1,8 @@
 package com.ac.er;
 
 import java.net.UnknownHostException;
+import java.util.List;
+import java.util.UUID;
 
 import com.ac.er.data.Ambulance;
 import com.ac.er.data.Hospital;
@@ -60,7 +62,8 @@ public class DataLoader {
       //Let's start with loading our hospitals
       int hospitalCount = 0;
       DBCollection hospitals = mongoDB.getCollection("hospital");
-      for (Hospital hospital : HospitalLoader.buildHospitalList()) {
+      List<Hospital> allHospitals = HospitalLoader.buildHospitalList();
+      for (Hospital hospital : allHospitals) {
         hospitalCount++;
         BasicDBObject writeObject = new BasicDBObject();
         
@@ -94,7 +97,8 @@ public class DataLoader {
       //Let's start with loading our hospitals
       int ambulanceCount = 0;
       DBCollection ambulances = mongoDB.getCollection("ambulance");
-      for (Ambulance ambulance : AmbulanceLoader.buildAmbulanceList()) {
+      List<Ambulance> allAmbulances = AmbulanceLoader.buildAmbulanceList();
+      for (Ambulance ambulance : allAmbulances) {
         ambulanceCount++;
         BasicDBObject writeObject = new BasicDBObject();
         
@@ -120,6 +124,39 @@ public class DataLoader {
       }
       
       System.out.println ("Successfully Inserted/Updated " + ambulanceCount + " ambulances!");
+      
+      //Now we need to insert passwords for our system, all passwords will be in the format talked
+      //about in the comments for the helper method
+      
+      DBCollection accessCollection = mongoDB.getCollection("access");
+      System.out.println ("Generating System Passwords....");
+      for (Hospital hospital : allHospitals) {
+        BasicDBObject writeObject = new BasicDBObject();
+        writeObject.append("hospitalID", hospital.getHospitalID());
+        String password = generatePasswordFromUUID();
+        writeObject.append("password", password);
+        
+        BasicDBObject updateCheckObject = new BasicDBObject();
+        updateCheckObject.append("hospitalID", hospital.getHospitalID());
+        
+        System.out.println ("[hospitalID:" + hospital.getHospitalID() + "|password:" + password+ "]");
+        
+        accessCollection.update(updateCheckObject, writeObject, true, false);
+      }
+      
+      for (Ambulance ambulance : allAmbulances) {
+        BasicDBObject writeObject = new BasicDBObject();
+        writeObject.append("ambulanceID", ambulance.getAmbulanceID());
+        String password = generatePasswordFromUUID();
+        writeObject.append("password", password);
+        
+        BasicDBObject updateCheckObject = new BasicDBObject();
+        updateCheckObject.append("ambulanceID", ambulance.getAmbulanceID());
+        
+        System.out.println ("[ambulanceID:" + ambulance.getAmbulanceID() + "|password:" + password + "]");
+        
+        accessCollection.update(updateCheckObject, writeObject, true, false);
+      }
 
       client.close();
     } catch (UnknownHostException e) {
@@ -190,6 +227,21 @@ public class DataLoader {
     for (Object obj : curList)
       newList.add(obj);
     return newList;
+  }
+  
+  /**
+   * UUID are in the format of 067e6162-3b6f-4ae2-a171-2470b63dff00, or put generically:
+   * xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
+   * 
+   * Our passwords will be the first three blocks with the hyphens removed.
+   * 
+   * @return A password of 16 characters with no hyphens
+   */
+  private String generatePasswordFromUUID() {
+    UUID idValue = UUID.randomUUID();
+    
+    String password = idValue.toString();
+    return password.replace("-", "").substring(0, 16);
   }
   
 }
