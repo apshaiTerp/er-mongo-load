@@ -2,6 +2,7 @@ package com.ac.er;
 
 import java.net.UnknownHostException;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import com.ac.er.data.Ambulance;
@@ -147,7 +148,7 @@ public class DataLoader {
       for (Ambulance ambulance : allAmbulances) {
         BasicDBObject writeObject = new BasicDBObject();
         writeObject.append("ambulanceID", ambulance.getAmbulanceID());
-        String password = generatePasswordFromUUID();
+        String password = generatePasswordNumeric();
         writeObject.append("password", password);
         
         BasicDBObject updateCheckObject = new BasicDBObject();
@@ -242,6 +243,17 @@ public class DataLoader {
     
     String password = idValue.toString();
     return password.replace("-", "").substring(0, 16);
+  }
+  
+  private String generatePasswordNumeric() {
+    Random random = new Random();
+    int number = random.nextInt(100000000);
+    
+    String password = "" + number;
+    while (password.length() < 8)
+      password = "0" + password;
+    
+    return password;
   }
   
 }
