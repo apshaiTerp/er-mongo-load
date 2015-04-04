@@ -46,8 +46,14 @@ public class HospitalLoader {
     hospitals.add(buildProvidenceMedicalCenter());
     hospitals.add(buildShawneeMissionHealthPrairieStar());
     hospitals.add(buildShawneeMissionMedicalCenter());
+    hospitals.add(buildTrumanMedicalCenterHospitalHill());
     hospitals.add(buildTrumanMedicalCenterLakewood());
     hospitals.add(buildWrightMemoralHospital());
+    
+    hospitals.add(buildCassRegionalMedicalCenter());
+    hospitals.add(buildExcelsiorSpringsHospital());
+    hospitals.add(buildOlatheMedicalCenter());
+    hospitals.add(buildStJohnsHospital());
     
     return hospitals;
   }
@@ -58,8 +64,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Belton Regional Medical Center");
     hospital.setHospitalLat(38.8140416);
     hospital.setHospitalLon(-94.5043987);
-    hospital.setHospitalString("17065 S. 71 Highway Belton, MO 64012");
-    hospital.setHospitalStatus("level3");
+    hospital.setAddress("17065 S. 71 Highway Belton, MO 64012");
+    String[] levelOfCare = {"basicER", "trauma3"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(2);
@@ -79,8 +86,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Centerpoint Medical Center");
     hospital.setHospitalLat(39.0494374);
     hospital.setHospitalLon(-94.3488139);
-    hospital.setHospitalString("19600 East 39th Street, Indepdence, MO 64057");
-    hospital.setHospitalStatus("level2");
+    hospital.setAddress("19600 East 39th Street, Indepdence, MO 64057");
+    String[] levelOfCare = {"basicER", "trauma2", "trauma3", "STEMI"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(2);
@@ -100,8 +108,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Lafayette Regional Health Center");
     hospital.setHospitalLat(39.1891475);
     hospital.setHospitalLon(-93.8762631);
-    hospital.setHospitalString("1500 State Street Lexington, MO 64067");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("1500 State Street Lexington, MO 64067");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -121,8 +130,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Lee's Summit Medical Center");
     hospital.setHospitalLat(38.90359);
     hospital.setHospitalLon(-94.3330751);
-    hospital.setHospitalString("2100 SE Blue Parkway Lee's Summit, MO 64063");
-    hospital.setHospitalStatus("level3");
+    hospital.setAddress("2100 SE Blue Parkway Lee's Summit, MO 64063");
+    String[] levelOfCare = {"basicER", "trauma3", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(2);
@@ -142,8 +152,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Menorah Medical Center");
     hospital.setHospitalLat(38.9101407);
     hospital.setHospitalLon(-94.6524854);
-    hospital.setHospitalString("5721 W. 119th Street Overland Park, KS 66209");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("5721 W. 119th Street Overland Park, KS 66209");
+    String[] levelOfCare = {"basicER", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -163,8 +174,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Overland Park Regional Medical Center");
     hospital.setHospitalLat(38.9371818);
     hospital.setHospitalLon(-94.7253632);
-    hospital.setHospitalString("10500 Quivira Road Overland Park, KS 66215");
-    hospital.setHospitalStatus("level2");
+    hospital.setAddress("10500 Quivira Road Overland Park, KS 66215");
+    String[] levelOfCare = {"basicER", "trauma2", "trauma3", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(3);
@@ -184,8 +196,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Research Medical Center - Brookside Campus");
     hospital.setHospitalLat(39.0069946);
     hospital.setHospitalLon(-94.5772109);
-    hospital.setHospitalString("6601 Rockhill Road, Kansas City, MO");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("6601 Rockhill Road, Kansas City, MO");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -205,8 +218,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Research Medical Center");
     hospital.setHospitalLat(39.0084782);
     hospital.setHospitalLon(-94.5580436);
-    hospital.setHospitalString("2316 E Meyer Blvd Kansas City, MO 64132");
-    hospital.setHospitalStatus("level1");
+    hospital.setAddress("2316 E Meyer Blvd Kansas City, MO 64132");
+    String[] levelOfCare = {"basicER", "trauma1", "trauma2", "trauma3", "burn", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(3);
@@ -220,18 +234,15 @@ public class HospitalLoader {
     return hospital;
   }
   
-
-  
-  
-  
   private static Hospital buildSaintLukesCushingHospital() {
     Hospital hospital = new Hospital();
     hospital.setHospitalID(2000);
     hospital.setHospitalName("Saint Luke's Cushing Hospital");
     hospital.setHospitalLat(39.307297);
     hospital.setHospitalLon(-94.918431);
-    hospital.setHospitalString("711 Marshall St. Leavenworth, KS 66048");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("711 Marshall St. Leavenworth, KS 66048");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -251,8 +262,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Saint Luke's East Hosptial");
     hospital.setHospitalLat(38.9420549);
     hospital.setHospitalLon(-94.3815712);
-    hospital.setHospitalString("100 N.E. Saint Luke's Blvd. Lee's Summit, MO 64086");
-    hospital.setHospitalStatus("level3");
+    hospital.setAddress("100 N.E. Saint Luke's Blvd. Lee's Summit, MO 64086");
+    String[] levelOfCare = {"basicER", "trauma3", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(2);
@@ -272,8 +284,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Saint Luke's Hospital of Kansas City");
     hospital.setHospitalLat(39.0476376);
     hospital.setHospitalLon(-94.5903088);
-    hospital.setHospitalString("4401 Wornall Road Kansas City, MO 64111");
-    hospital.setHospitalStatus("level1");
+    hospital.setAddress("4401 Wornall Road Kansas City, MO 64111");
+    String[] levelOfCare = {"basicER", "trauma1", "trauma2", "trauma3", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(5);
@@ -293,8 +306,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Saint Luke's North Hospital - Barry Road");
     hospital.setHospitalLat(39.248877);
     hospital.setHospitalLon(-94.648331);
-    hospital.setHospitalString("5830 N.W. Barry Road Kansas City, MO 64154");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("5830 N.W. Barry Road Kansas City, MO 64154");
+    String[] levelOfCare = {"basicER", "STEMI"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -314,8 +328,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Saint Luke's North Hospital - Smithville");
     hospital.setHospitalLat(39.3765434);
     hospital.setHospitalLon(-94.5812193);
-    hospital.setHospitalString("601 S. 169 Highway Smithville, MO 64089");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("601 S. 169 Highway Smithville, MO 64089");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -335,8 +350,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Saint Luke's South Hospital");
     hospital.setHospitalLat(39.0084782);
     hospital.setHospitalLon(-94.5580436);
-    hospital.setHospitalString("12300 Metcalf Ave. Overland Park, KS 66213");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("12300 Metcalf Ave. Overland Park, KS 66213");
+    String[] levelOfCare = {"basicER", "STEMI"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -356,8 +372,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Children's Mercy Hospital");
     hospital.setHospitalLat(39.0841305);
     hospital.setHospitalLon(-94.5771441);
-    hospital.setHospitalString("2401 Gillham Road, Kansas City, MO 64108");
-    hospital.setHospitalStatus("level1");
+    hospital.setAddress("2401 Gillham Road, Kansas City, MO 64108");
+    String[] levelOfCare = {"basicERPed", "traumaPed", "burnPed"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(3);
@@ -377,8 +394,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Children's Mercy South");
     hospital.setHospitalLat(38.9298785);
     hospital.setHospitalLon(-94.6523746);
-    hospital.setHospitalString("5808 W. 110th Overland Park, KS 66211");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("5808 W. 110th Overland Park, KS 66211");
+    String[] levelOfCare = {"basicERPed"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -398,8 +416,9 @@ public class HospitalLoader {
     hospital.setHospitalName("University of Kansas Hospital");
     hospital.setHospitalLat(39.0561921);
     hospital.setHospitalLon(-94.6114044);
-    hospital.setHospitalString("3901 Rainbow Boulevard Kansas City, Kansas 66160");
-    hospital.setHospitalStatus("level1");
+    hospital.setAddress("3901 Rainbow Boulevard Kansas City, Kansas 66160");
+    String[] levelOfCare = {"basicER", "basicERPed", "burn", "burnPed", "traumaPed", "trauma1", "trauma2", "trauma3", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(2);
@@ -419,8 +438,9 @@ public class HospitalLoader {
     hospital.setHospitalName("St. Joseph Medical Center");
     hospital.setHospitalLat(38.9356797);
     hospital.setHospitalLon(-94.6046903);
-    hospital.setHospitalString("1000 Carondelet Dr, Kansas City, MO 64114");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("1000 Carondelet Dr, Kansas City, MO 64114");
+    String[] levelOfCare = {"basicER", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -440,8 +460,9 @@ public class HospitalLoader {
     hospital.setHospitalName("St. Mary's Medical Center");
     hospital.setHospitalLat(39.0253623);
     hospital.setHospitalLon(-94.264405);
-    hospital.setHospitalString("201 NW R.D. Mize Road Blue Springs, MO 64014");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("201 NW R.D. Mize Road Blue Springs, MO 64014");
+    String[] levelOfCare = {"basicER", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -461,8 +482,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Anderson County Hospital");
     hospital.setHospitalLat(38.2799108);
     hospital.setHospitalLon(-95.2501057);
-    hospital.setHospitalString("421 S. Maple Garnett, KS 66032");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("421 S. Maple Garnett, KS 66032");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -482,8 +504,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Heartland Regional Medical Center");
     hospital.setHospitalLat(39.7732177);
     hospital.setHospitalLon(-94.7708764);
-    hospital.setHospitalString("5325 Faroan Street St. Joseph, MO 64506");
-    hospital.setHospitalStatus("level2");
+    hospital.setAddress("5325 Faroan Street St. Joseph, MO 64506");
+    String[] levelOfCare = {"basicER", "trauma2", "trauma3"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(2);
@@ -503,8 +526,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Hendrick Medical Center");
     hospital.setHospitalLat(39.8188046);
     hospital.setHospitalLon(-93.5522352);
-    hospital.setHospitalString("2799 N. Washington St. Chillicothe, MO 64601");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("2799 N. Washington St. Chillicothe, MO 64601");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -524,8 +548,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Liberty Hospital");
     hospital.setHospitalLat(39.2747471);
     hospital.setHospitalLon(-94.4243895);
-    hospital.setHospitalString("2525 Glenn Hendren Drive Liberty, MO 64068");
-    hospital.setHospitalStatus("level2");
+    hospital.setAddress("2525 Glenn Hendren Drive Liberty, MO 64068");
+    String[] levelOfCare = {"basicER", "trauma2", "trauma3", "STEMI"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(3);
@@ -545,8 +570,9 @@ public class HospitalLoader {
     hospital.setHospitalName("North Kansas City Hospital");
     hospital.setHospitalLat(39.149565);
     hospital.setHospitalLon(-94.551603);
-    hospital.setHospitalString("2800 Clay Edwards Drive, North Kansas City, MO");
-    hospital.setHospitalStatus("level2");
+    hospital.setAddress("2800 Clay Edwards Drive, North Kansas City, MO");
+    String[] levelOfCare = {"basicER", "trauma2", "trauma3", "STEMI"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(3);
@@ -566,8 +592,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Providence Medical Center");
     hospital.setHospitalLat(39.1265615);
     hospital.setHospitalLon(-94.7866525);
-    hospital.setHospitalString("8929 Parallel Parkway Kansas City, KS 66112");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("8929 Parallel Parkway Kansas City, KS 66112");
+    String[] levelOfCare = {"basicER", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -587,8 +614,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Shawnee Mission Health - Prairie Star");
     hospital.setHospitalLat(38.9550445);
     hospital.setHospitalLon(-94.8571287);
-    hospital.setHospitalString("23401 Prairie Star Parkway Lenexa, Kansas 66227 ");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("23401 Prairie Star Parkway Lenexa, Kansas 66227 ");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -608,8 +636,9 @@ public class HospitalLoader {
     hospital.setHospitalName("Shawnee Mission Medical Center");
     hospital.setHospitalLat(39.0253623);
     hospital.setHospitalLon(-94.264405);
-    hospital.setHospitalString("9100 West 74th Street Shawnee Mission, Kansas 66204");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("9100 West 74th Street Shawnee Mission, Kansas 66204");
+    String[] levelOfCare = {"basicER", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -623,14 +652,15 @@ public class HospitalLoader {
     return hospital;
   }
   
-  private static Hospital buildTrumanMedicalCenterLakewood() {
+  private static Hospital buildTrumanMedicalCenterHospitalHill() {
     Hospital hospital = new Hospital();
     hospital.setHospitalID(6008);
-    hospital.setHospitalName("Truman Medical Center Lakewood");
-    hospital.setHospitalLat(38.9757573);
-    hospital.setHospitalLon(-94.3946152);
-    hospital.setHospitalString("7900 Lee's Summit Rd, Kansas City, MO");
-    hospital.setHospitalStatus("level1");
+    hospital.setHospitalName("Truman Medical Center - Hospital Hill");
+    hospital.setHospitalLat(39.0847545);
+    hospital.setHospitalLon(-94.5751846);
+    hospital.setAddress("2301 Holmes St Kansas City, MO 64108");
+    String[] levelOfCare = {"basicER", "trauma1", "trauma2", "trauma3", "STEMI"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(3);
@@ -644,14 +674,37 @@ public class HospitalLoader {
     return hospital;
   }
   
-  private static Hospital buildWrightMemoralHospital() {
+  private static Hospital buildTrumanMedicalCenterLakewood() {
     Hospital hospital = new Hospital();
     hospital.setHospitalID(6009);
+    hospital.setHospitalName("Truman Medical Center Lakewood");
+    hospital.setHospitalLat(38.9757573);
+    hospital.setHospitalLon(-94.3946152);
+    hospital.setAddress("7900 Lee's Summit Rd, Kansas City, MO");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
+    String[] ages = {"child", "teen", "adult"};
+    hospital.setHostAges(ages);
+    hospital.setTraumaBeds(0);
+    hospital.setTraumaBedsFree(0);
+    hospital.setTraumaBedsOccupied(0);
+    hospital.setTraumaBedsCleanup(0);
+    hospital.setErBeds(29);
+    hospital.setErBedsFree(29);
+    hospital.setErBedsOccupied(0);
+    hospital.setErBedsCleanup(0);
+    return hospital;
+  }
+  
+  private static Hospital buildWrightMemoralHospital() {
+    Hospital hospital = new Hospital();
+    hospital.setHospitalID(6010);
     hospital.setHospitalName("Wright Memoral Hospital");
     hospital.setHospitalLat(40.0676321);
     hospital.setHospitalLon(-93.5820152);
-    hospital.setHospitalString("191 Iowa Blvd. Trenton, MO 64683");
-    hospital.setHospitalStatus("basicER");
+    hospital.setAddress("191 Iowa Blvd. Trenton, MO 64683");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
     String[] ages = {"child", "teen", "adult"};
     hospital.setHostAges(ages);
     hospital.setTraumaBeds(0);
@@ -660,6 +713,94 @@ public class HospitalLoader {
     hospital.setTraumaBedsCleanup(0);
     hospital.setErBeds(19);
     hospital.setErBedsFree(19);
+    hospital.setErBedsOccupied(0);
+    hospital.setErBedsCleanup(0);
+    return hospital;
+  }
+  
+  private static Hospital buildCassRegionalMedicalCenter() {
+    Hospital hospital = new Hospital();
+    hospital.setHospitalID(7000);
+    hospital.setHospitalName("Cass Regional Medical Center");
+    hospital.setHospitalLat(38.664314);
+    hospital.setHospitalLon(-94.376719);
+    hospital.setAddress("2800 Rock Haven Rd Harrisonville, MO 64701");
+    String[] levelOfCare = {"basicER", "trauma3"};
+    hospital.setLevelOfCare(levelOfCare);
+    String[] ages = {"child", "teen", "adult"};
+    hospital.setHostAges(ages);
+    hospital.setTraumaBeds(1);
+    hospital.setTraumaBedsFree(1);
+    hospital.setTraumaBedsOccupied(0);
+    hospital.setTraumaBedsCleanup(0);
+    hospital.setErBeds(25);
+    hospital.setErBedsFree(25);
+    hospital.setErBedsOccupied(0);
+    hospital.setErBedsCleanup(0);
+    return hospital;
+  }
+  
+  private static Hospital buildExcelsiorSpringsHospital() {
+    Hospital hospital = new Hospital();
+    hospital.setHospitalID(7001);
+    hospital.setHospitalName("Excelsior Springs Hospital");
+    hospital.setHospitalLat(39.363007);
+    hospital.setHospitalLon(-94.238169);
+    hospital.setAddress("1700 Rainbow Blvd Excelsior Springs, MO 64024");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
+    String[] ages = {"child", "teen", "adult"};
+    hospital.setHostAges(ages);
+    hospital.setTraumaBeds(0);
+    hospital.setTraumaBedsFree(0);
+    hospital.setTraumaBedsOccupied(0);
+    hospital.setTraumaBedsCleanup(0);
+    hospital.setErBeds(20);
+    hospital.setErBedsFree(20);
+    hospital.setErBedsOccupied(0);
+    hospital.setErBedsCleanup(0);
+    return hospital;
+  }
+  
+  private static Hospital buildOlatheMedicalCenter() {
+    Hospital hospital = new Hospital();
+    hospital.setHospitalID(7002);
+    hospital.setHospitalName("Olathe Medical Center");
+    hospital.setHospitalLat(38.8514775);
+    hospital.setHospitalLon(-94.8254209);
+    hospital.setAddress("20375 W 151st Olathe, KS 66061");
+    String[] levelOfCare = {"basicER", "STEMI", "stroke"};
+    hospital.setLevelOfCare(levelOfCare);
+    String[] ages = {"child", "teen", "adult"};
+    hospital.setHostAges(ages);
+    hospital.setTraumaBeds(0);
+    hospital.setTraumaBedsFree(0);
+    hospital.setTraumaBedsOccupied(0);
+    hospital.setTraumaBedsCleanup(0);
+    hospital.setErBeds(19);
+    hospital.setErBedsFree(19);
+    hospital.setErBedsOccupied(0);
+    hospital.setErBedsCleanup(0);
+    return hospital;
+  }
+  
+  private static Hospital buildStJohnsHospital() {
+    Hospital hospital = new Hospital();
+    hospital.setHospitalID(7003);
+    hospital.setHospitalName("St. John's Hospital");
+    hospital.setHospitalLat(39.282181);
+    hospital.setHospitalLon(-94.903679);
+    hospital.setAddress("3500 4th Street Leavenworth, KS 66048");
+    String[] levelOfCare = {"basicER"};
+    hospital.setLevelOfCare(levelOfCare);
+    String[] ages = {"child", "teen", "adult"};
+    hospital.setHostAges(ages);
+    hospital.setTraumaBeds(0);
+    hospital.setTraumaBedsFree(0);
+    hospital.setTraumaBedsOccupied(0);
+    hospital.setTraumaBedsCleanup(0);
+    hospital.setErBeds(23);
+    hospital.setErBedsFree(23);
     hospital.setErBedsOccupied(0);
     hospital.setErBedsCleanup(0);
     return hospital;

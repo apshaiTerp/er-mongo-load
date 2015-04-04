@@ -11,8 +11,8 @@ public class Hospital {
   private String   hospitalName;
   private double   hospitalLat;
   private double   hospitalLon;
-  private String   hospitalString;
-  private String   hospitalStatus;
+  private String   address;
+  private String[] levelOfCare;
   private String[] hostAges;
   private int      traumaBeds;
   private int      traumaBedsFree;
@@ -28,17 +28,17 @@ public class Hospital {
     hospitalName       = null;
     hospitalLat        = 0.0;
     hospitalLon        = 0.0;
-    hospitalString     = null;
-    hospitalStatus     = null;
+    address            = null;
+    levelOfCare        = null;
     hostAges           = null;
-    traumaBeds         = 0;
-    traumaBedsFree     = 0;
-    traumaBedsOccupied = 0;
-    traumaBedsCleanup  = 0;
-    erBeds             = 0;
-    erBedsFree         = 0;
-    erBedsOccupied     = 0;
-    erBedsCleanup      = 0;
+    traumaBeds         = -1;
+    traumaBedsFree     = -1;
+    traumaBedsOccupied = -1;
+    traumaBedsCleanup  = -1;
+    erBeds             = -1;
+    erBedsFree         = -1;
+    erBedsOccupied     = -1;
+    erBedsCleanup      = -1;
   }
 
   /**
@@ -95,34 +95,6 @@ public class Hospital {
    */
   public void setHospitalLon(double hospitalLon) {
     this.hospitalLon = hospitalLon;
-  }
-
-  /**
-   * @return the hospitalString
-   */
-  public String getHospitalString() {
-    return hospitalString;
-  }
-
-  /**
-   * @param hospitalString the hospitalString to set
-   */
-  public void setHospitalString(String hospitalString) {
-    this.hospitalString = hospitalString;
-  }
-
-  /**
-   * @return the hospitalStatus
-   */
-  public String getHospitalStatus() {
-    return hospitalStatus;
-  }
-
-  /**
-   * @param hospitalStatus the hospitalStatus to set
-   */
-  public void setHospitalStatus(String hospitalStatus) {
-    this.hospitalStatus = hospitalStatus;
   }
 
   /**
@@ -249,5 +221,33 @@ public class Hospital {
    */
   public void setErBedsCleanup(int erBedsCleanup) {
     this.erBedsCleanup = erBedsCleanup;
+  }
+
+  /**
+   * @return the address
+   */
+  public String getAddress() {
+    return address;
+  }
+
+  /**
+   * @param address the address to set
+   */
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  /**
+   * @return the levelOfCare
+   */
+  public String[] getLevelOfCare() {
+    return levelOfCare;
+  }
+
+  /**
+   * @param levelOfCare the levelOfCare to set
+   */
+  public void setLevelOfCare(String[] levelOfCare) {
+    this.levelOfCare = levelOfCare;
   }
 }

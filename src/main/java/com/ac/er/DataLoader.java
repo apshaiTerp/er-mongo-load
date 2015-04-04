@@ -41,7 +41,7 @@ public class DataLoader {
   public DataLoader() {
     //This represents the default values of the database.  Values will be set to defaults
     //unless overridden by the command line arguments
-    databaseHost = "localhost";
+    databaseHost = "192.168.1.9";
     databasePort = 27017;
     databaseName = "erdb";
   }
@@ -73,8 +73,8 @@ public class DataLoader {
         writeObject.append("hospitalName", hospital.getHospitalName());
         writeObject.append("lat", hospital.getHospitalLat());
         writeObject.append("lon", hospital.getHospitalLon());
-        writeObject.append("address", hospital.getHospitalString());
-        writeObject.append("levelOfCare", hospital.getHospitalStatus());
+        writeObject.append("address", hospital.getAddress());
+        writeObject.append("levelOfCare", convertList(hospital.getLevelOfCare()));
         writeObject.append("patientAges", convertList(hospital.getHostAges()));
         writeObject.append("traumaBeds", hospital.getTraumaBeds());
         writeObject.append("traumaBedsFree", hospital.getTraumaBedsFree());
